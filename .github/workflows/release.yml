@@ -27,10 +27,9 @@ jobs:
 
       - name: Build & publish
         env:
-          # Token GitHub con scope "repo" — aggiungilo come repository secret GH_TOKEN
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
-          # Certificato Windows (.pfx) codificato in Base64 — repository secret WIN_CSC_LINK
-          WIN_CSC_LINK: ${{ secrets.WIN_CSC_LINK }}
-          # Password del certificato — repository secret WIN_CSC_KEY_PASSWORD
-          WIN_CSC_KEY_PASSWORD: ${{ secrets.WIN_CSC_KEY_PASSWORD }}
+          # CSC_LINK e CSC_KEY_PASSWORD sono le variabili native di electron-builder
+          # CSC_LINK accetta sia un percorso file che una stringa Base64 del .pfx
+          CSC_LINK: ${{ secrets.WIN_CSC_LINK }}
+          CSC_KEY_PASSWORD: ${{ secrets.WIN_CSC_KEY_PASSWORD }}
         run: npx electron-vite build && npx electron-builder --win --publish always
