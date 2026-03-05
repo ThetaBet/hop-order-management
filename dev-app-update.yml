@@ -1,0 +1,4 @@
+provider: github
+owner: ThetaBet
+repo: hop-order-management
+updaterCacheDirName: hop-order-management-updater

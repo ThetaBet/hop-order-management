@@ -1,0 +1,33 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - 'v*.*.*'   # Triggered by tags like v1.2.3
+
+jobs:
+  build-windows:
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build & publish
+        env:
+          # Token GitHub con scope "repo" — aggiungilo come repository secret GH_TOKEN
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+          # Certificato Windows (.pfx) codificato in Base64 — repository secret WIN_CSC_LINK
+          WIN_CSC_LINK: ${{ secrets.WIN_CSC_LINK }}
+          # Password del certificato — repository secret WIN_CSC_KEY_PASSWORD
+          WIN_CSC_KEY_PASSWORD: ${{ secrets.WIN_CSC_KEY_PASSWORD }}
+        run: npx electron-vite build && npx electron-builder --win --publish always

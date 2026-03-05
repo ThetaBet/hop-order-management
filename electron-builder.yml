@@ -1,0 +1,61 @@
+appId: com.hop.order.management
+productName: Hop!
+copyright: Copyright © 2026 Thomas Bellardone
+directories:
+  buildResources: build
+files:
+  - '!**/.vscode/*'
+  - '!src/*'
+  - '!electron.vite.config.{js,ts,mjs,cjs}'
+  - '!{.eslintcache,eslint.config.mjs,.prettierignore,.prettierrc.yaml,dev-app-update.yml,CHANGELOG.md,README.md}'
+  - '!{.env,.env.*,.npmrc,pnpm-lock.yaml}'
+  - '!{tsconfig.json,tsconfig.node.json,tsconfig.web.json}'
+asarUnpack:
+  - resources/**
+  - '**/*.node'
+win:
+  icon: build/icon.ico
+  executableName: hop
+  # Firma del codice: imposta le variabili d'ambiente WIN_CSC_LINK e WIN_CSC_KEY_PASSWORD
+  # WIN_CSC_LINK: percorso al file .pfx oppure stringa base64 del certificato
+  # WIN_CSC_KEY_PASSWORD: password del certificato
+  certificateFile: ${env.WIN_CSC_LINK}
+  certificatePassword: ${env.WIN_CSC_KEY_PASSWORD}
+  target:
+    - target: nsis
+      arch:
+        - x64
+nsis:
+  artifactName: ${name}-${version}-setup.${ext}
+  shortcutName: ${productName}
+  uninstallDisplayName: ${productName}
+  createDesktopShortcut: always
+  oneClick: true
+  perMachine: false
+mac:
+  icon: src/main/assets/hop.icon
+  entitlementsInherit: build/entitlements.mac.plist
+  extendInfo:
+    - NSCameraUsageDescription: Application requests access to the device's camera.
+    - NSMicrophoneUsageDescription: Application requests access to the device's microphone.
+    - NSDocumentsFolderUsageDescription: Application requests access to the user's Documents folder.
+    - NSDownloadsFolderUsageDescription: Application requests access to the user's Downloads folder.
+  notarize: false
+dmg:
+  artifactName: ${name}-${version}.${ext}
+linux:
+  target:
+    - AppImage
+    - snap
+    - deb
+  maintainer: bellardone.it
+  category: Utility
+appImage:
+  artifactName: ${name}-${version}.${ext}
+npmRebuild: true
+publish:
+  provider: github
+  # owner e repo vengono letti automaticamente dal remote git, oppure specificali:
+  # owner: YOUR_GITHUB_USERNAME
+  # repo: YOUR_REPO_NAME
+  releaseType: release

@@ -1,0 +1,40 @@
+export const genericLocaleText = {
+  noRowsLabel: 'Nessun dato trovato',
+  paginationRowsPerPage: 'dati per pagina:',
+  columnMenuSortAsc: 'Ordina in modo crescente',
+  columnMenuSortDesc: 'Ordina in modo decrescente',
+  columnMenuFilter: 'Filtra',
+  columnMenuHideColumn: 'Nascondi colonna',
+  columnMenuShowColumns: 'Mostra colonne',
+  columnMenuManageColumns: 'Gestisci colonne',
+  columnMenuUnsort: 'Rimuovi ordinamento',
+  filterPanelColumns: 'Colonne',
+  filterPanelOperators: 'Operatori',
+  filterPanelInputLabel: 'Valore',
+  filterPanelInputPlaceholder: 'Valore filtro',
+  filterOperatorContains: 'contiene',
+  filterOperatorDoesNotContain: 'non contiene',
+  filterOperatorEquals: 'è uguale a',
+  filterOperatorDoesNotEqual: 'non è uguale a',
+  filterOperatorStartsWith: 'inizia con',
+  filterOperatorEndsWith: 'finisce con',
+  filterOperatorIs: 'è',
+  filterOperatorNot: 'non è',
+  filterOperatorAfter: 'è dopo',
+  filterOperatorOnOrAfter: 'è il o dopo',
+  filterOperatorBefore: 'è prima di',
+  filterOperatorOnOrBefore: 'è il o prima di',
+  filterOperatorIsEmpty: 'è vuoto',
+  filterOperatorIsNotEmpty: 'non è vuoto',
+  filterOperatorIsAnyOf: 'è uno di',
+  columnsManagementShowHideAllText: 'Mostra/Nascondi tutto',
+  columnsManagementSearchTitle: 'Cerca colonna',
+  filterPanelLogicOperator: 'Operatore',
+  filterPanelOperator: 'Operatore',
+  checkboxSelectionHeaderName: 'Colonna selezione',
+  
+  footerRowSelected: (count: number) =>
+    count !== 1
+      ? `${count.toLocaleString()} Dati selezionati`
+      : `${count.toLocaleString()} Dato selezionato`
+}

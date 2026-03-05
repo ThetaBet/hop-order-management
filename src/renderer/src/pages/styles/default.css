@@ -1,0 +1,41 @@
+.pageContainer {
+  padding: 24px;
+  position: relative;
+}
+
+.pageWithTopBar {
+  padding-top: 112px;
+}
+
+.pageContainer::before {
+  content: '';
+  width: 1px;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 16px;
+  background: linear-gradient(
+    to right,
+    rgba(255, 100, 100, 0.7) 0%,
+    rgba(255, 80, 80, 0.8) 50%,
+    rgba(255, 100, 100, 0.6) 100%
+  );
+  box-shadow:
+    0 0 1px rgba(255, 80, 80, 0.4),
+    1px 0 2px rgba(255, 80, 80, 0.3),
+    -0.5px 0 1px rgba(255, 80, 80, 0.2);
+  filter: blur(0.3px);
+  opacity: 0.85;
+  pointer-events: none;
+}
+
+.pageContainer::after {
+  content: '';
+  width: 0.5px;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 16.5px;
+  background: rgba(255, 60, 60, 0.4);
+  filter: blur(0.2px);
+}
