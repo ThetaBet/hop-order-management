@@ -16,6 +16,7 @@ asarUnpack:
 win:
   icon: build/icon.ico
   executableName: hop
+  publisherName: Thomas Bellardone
   # La firma avviene tramite le variabili d'ambiente CSC_LINK e CSC_KEY_PASSWORD
   # passate dal workflow GitHub Actions
   target:
