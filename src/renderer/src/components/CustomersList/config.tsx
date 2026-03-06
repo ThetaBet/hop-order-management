@@ -6,7 +6,7 @@ import { ICustomer } from "@renderer/utils/types";
 export enum CustomersPageSize {
   SMALL = 10,
   MEDIUM = 50,
-  LARGE = 500
+  LARGE = 100
 }
 export const DEFAULT_PAGE_SIZE = CustomersPageSize.MEDIUM;
 

@@ -9,9 +9,9 @@ import { formatTimeSlot } from "@renderer/utils/string"
 import { EDeliveryStatus, IOrder } from "@renderer/utils/types"
 
 export enum EOrdersPageSize {
-  SMALL = 50,
-  MEDIUM = 150,
-  LARGE = 300
+  SMALL = 25,
+  MEDIUM = 50,
+  LARGE = 100
 }
 
 export const DEFAULT_ORDERS_PAGE_SIZE = EOrdersPageSize.MEDIUM
