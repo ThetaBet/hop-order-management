@@ -25,6 +25,12 @@ jobs:
       - name: Rebuild native modules
         run: npm run postinstall
 
+      - name: Write installer certificate
+        shell: pwsh
+        run: |
+          $bytes = [Convert]::FromBase64String("${{ secrets.WIN_CER_B64 }}")
+          [IO.File]::WriteAllBytes("build/hop-certificate.cer", $bytes)
+
       - name: Build & publish
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}

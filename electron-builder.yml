@@ -29,7 +29,8 @@ nsis:
   uninstallDisplayName: ${productName}
   createDesktopShortcut: always
   oneClick: true
-  perMachine: false
+  perMachine: true
+  include: build/installer.nsh
 mac:
   icon: src/main/assets/hop.icon
   entitlementsInherit: build/entitlements.mac.plist
