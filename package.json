@@ -1,6 +1,6 @@
 {
   "name": "hop-order-management",
-  "version": "0.1.0",
+  "version": "0.1.2",
   "description": "",
   "main": "./out/main/index.js",
   "author": "Thomas Bellardone",
