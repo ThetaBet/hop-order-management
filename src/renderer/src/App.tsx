@@ -51,6 +51,19 @@ const MainLayout: FC = () => {
     })
   }, [queryClient])
 
+  // Workaround: invalidate all queries when window gains focus
+  useEffect(() => {
+    const handleFocus = () => {
+      queryClient.invalidateQueries()
+    }
+    
+    window.addEventListener('focus', handleFocus)
+    
+    return () => {
+      window.removeEventListener('focus', handleFocus)
+    }
+  }, [queryClient])
+
   return (
     <>
       <AppBar />
